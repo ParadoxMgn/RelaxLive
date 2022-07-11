@@ -8,7 +8,6 @@ export const debounce = (func, ms = 300) => {
 };
 
 export const animate = ({ timing, draw, duration }) => {
-
   let start = performance.now();
 
   requestAnimationFrame(function animate(time) {
@@ -24,7 +23,6 @@ export const animate = ({ timing, draw, duration }) => {
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
     }
-
   });
 };
 
