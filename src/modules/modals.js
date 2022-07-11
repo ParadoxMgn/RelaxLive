@@ -1,5 +1,8 @@
+import { animate } from './helpers';
+
 export const modals = () => {
   const popupRepairTypes = document.querySelector('.popup-repair-types');
+  const popupDialogRepairTypes = document.querySelector('.popup-dialog-repair-types');
 
   document.addEventListener('click', e => {
     e.preventDefault();
@@ -10,9 +13,19 @@ export const modals = () => {
     }
 
     if (e.target.closest('.no-overflow') || e.target.closest('.link-list-repair>a')) {
-      console.log(e.target);
       popupRepairTypes.style.visibility = 'visible';
       document.body.style.overflow = 'hidden';
+      popupDialogRepairTypes.style.opacity = '0';
+
+      animate({
+        duration: 500,
+        timing(timeFraction) {
+          return timeFraction;
+        },
+        draw(progress) {
+          popupDialogRepairTypes.style.opacity = progress;
+        }
+      });
     }
   });
 };
