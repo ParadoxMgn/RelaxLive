@@ -1,5 +1,6 @@
 import { phoneList } from './phoneList';
 import { burgerMenu } from './burgerMenu';
+import { smoothScroll } from './smoothScroll';
 
 export const headerBlock = () => {
   const dialogMenu = document.querySelector('.popup-dialog-menu');
@@ -13,6 +14,7 @@ export const headerBlock = () => {
   });
 
   document.addEventListener('click', e => {
+    e.preventDefault();
 
     if (e.target.closest('.header-contacts__arrow')) {
       phoneList(e.target);
@@ -20,6 +22,10 @@ export const headerBlock = () => {
 
     if (e.target.closest('.menu__icon') || e.target.closest('.close-menu') || e.target.closest('.menu-link')) {
       burgerMenu(e.target);
+    }
+
+    if (e.target.closest('.menu-link') || e.target.closest('.button-footer')) {
+      smoothScroll(e.target);
     }
   });
 };
