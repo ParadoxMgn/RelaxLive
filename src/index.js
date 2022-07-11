@@ -1,3 +1,9 @@
-import { headerBlock } from './modules/headerBlock';
+import { phoneList } from './modules/phoneList';
+import { burgerMenu } from './modules/burgerMenu';
+import { smoothScroll } from './modules/smoothScroll';
+import { modals } from './modules/modals';
 
-headerBlock();
+phoneList();
+burgerMenu();
+smoothScroll();
+modals();
