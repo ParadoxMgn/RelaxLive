@@ -3,11 +3,11 @@ import { burgerMenu } from './modules/burgerMenu';
 import { smoothScroll } from './modules/smoothScroll';
 import { modals } from './modules/modals';
 import { maskPhone } from './modules/maskPhone';
-import { slider } from './modules/slider';
+import { sliderTypesOfRepairs } from './modules/sliderTypesOfRepairs';
 
 phoneList();
 burgerMenu();
 smoothScroll();
 modals();
 maskPhone();
-slider();
+sliderTypesOfRepairs();
