@@ -7,6 +7,8 @@ import { sliderTypesOfRepairs } from './modules/sliderTypesOfRepairs';
 import { sendForm } from './modules/sendForm';
 import { sliderPortfolio } from './modules/sliderPortfolio';
 import { sliderPopupPortfolio } from './modules/sliderPopupPortfolio';
+import { accordion } from './modules/accordion';
+import { getData } from './modules/getData';
 
 phoneList();
 burgerMenu();
@@ -17,3 +19,5 @@ sliderTypesOfRepairs();
 sendForm();
 sliderPortfolio();
 sliderPopupPortfolio();
+accordion();
+getData();

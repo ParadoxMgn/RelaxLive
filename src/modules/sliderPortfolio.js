@@ -20,6 +20,15 @@ export const sliderPortfolio = () => {
     }
   };
 
+  window.addEventListener('resize', () => {
+    portfolioSliderSlide.forEach(item => {
+      item.style.transform = `translateX(0)`;
+      count = 0;
+      sliderArrowLeftPortfolio.style.display = 'none';
+      sliderArrowRightPortfolio.style.display = 'flex';
+    });
+  });
+
   const slider = (slides, direction) => {
     count = direction === 'right' ? --count : ++count;
 

@@ -1,4 +1,5 @@
 import { validateForm } from './validateForm';
+import { modals } from './modals';
 
 export const sendForm = () => {
   const form = document.querySelectorAll('form');
@@ -23,7 +24,7 @@ export const sendForm = () => {
 
     checkboxInput.removeAttribute('required');
 
-    const submitForm = (form) => {
+    const submitForm = (form, e) => {
       const formData = new FormData(form);
       const formBody = {};
 
@@ -37,6 +38,7 @@ export const sendForm = () => {
           sendData({ formBody })
             .then(data => {
               form.reset();
+              modals(true, e);
             })
             .catch(err => {
               alert(err);
@@ -69,7 +71,7 @@ export const sendForm = () => {
       form.addEventListener('submit', e => {
         e.preventDefault();
 
-        submitForm(form);
+        submitForm(form, e);
       });
     } catch (error) {
       alert(error.message);
