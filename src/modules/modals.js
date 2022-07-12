@@ -59,14 +59,15 @@ export const modals = (bool = false, e = '') => {
   };
 
   if (bool) {
-    popup(e, '.popup-thank', '.feedback-wrap', ['form']);
+    popup(e, '.popup-thank', '.popup-thank-bg', ['form']);
   }
 
   document.addEventListener('click', e => {
     popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['.no-overflow', '.link-list-repair a']);
     popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['.portfolio-slider__slide-frame']);
     popup(e, '.popup-privacy', '.popup-dialog-privacy', ['.link-privacy']);
-    popup(e, '.popup-consultation', '.feedback-wrap', ['.button_wide']);
-    popup(e, '.popup-thank', '.feedback-wrap', []);
+    popup(e, '.popup-transparency', '.popup-dialog-transparency', ['.transparency-item']);
+    popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['.button_wide']);
+    popup(e, '.popup-thank', '.popup-thank-bg', []);
   });
 };

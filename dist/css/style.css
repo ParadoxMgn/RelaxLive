@@ -912,17 +912,6 @@ template,
   }
 }
 
-.feedback__input:after {
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  content: '';
-  width: 343px;
-  height: 3px;
-  background-color: rgba(50, 40, 35, 0.7);
-  border-radius: 50px;
-}
-
 @media (max-width: 575px) {
   .feedback__input:after {
     width: 278px;
@@ -934,6 +923,7 @@ template,
   width: 343px;
   height: 39px;
   border: none;
+  border-bottom: 3px solid rgba(50, 40, 35, 0.7);
   background: url("../images/main/feedback_input_bg.svg") no-repeat;
   background-position: 100% 50%;
 }
@@ -1084,13 +1074,13 @@ template,
 
 @media (max-width: 1460px) {
   .formula:after {
-    right: -80px;
+    /* right: -80px; */
   }
 }
 
 @media (max-width: 1250px) {
   .formula:after {
-    right: -150px;
+    /* right: -150px; */
   }
 }
 
@@ -1103,7 +1093,7 @@ template,
 @media (max-width: 920px) {
   .formula:after {
     top: -310px;
-    right: -156px;
+    /* right: -156px; */
   }
 }
 
@@ -4290,7 +4280,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
   .faq:after {
-    right: -50px;
+    /* right: -50px; */
   }
 }
 

@@ -35,7 +35,7 @@ export const validateForm = (inputs) => {
     }
 
     item.addEventListener('invalid', () => {
-      item.style.border = '2px solid red';
+      item.style.borderBottom = '3px solid red';
     });
 
     if (item.type !== "checkbox" && !item.checkValidity()) {
@@ -46,7 +46,7 @@ export const validateForm = (inputs) => {
       inputs.forEach(item => {
         if (e.target === item && e.target.type !== "checkbox") {
           item.setCustomValidity('');
-          item.style.border = 'none';
+          item.style.borderBottom = `3px solid rgba(50, 40, 35, 0.7)`;
         }
       });
     });

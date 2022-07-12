@@ -9,6 +9,7 @@ import { sliderPortfolio } from './modules/sliderPortfolio';
 import { sliderPopupPortfolio } from './modules/sliderPopupPortfolio';
 import { accordion } from './modules/accordion';
 import { getData } from './modules/getData';
+import { tooltip } from './modules/tooltip';
 
 phoneList();
 burgerMenu();
@@ -21,3 +22,4 @@ sliderPortfolio();
 sliderPopupPortfolio();
 accordion();
 getData();
+tooltip();

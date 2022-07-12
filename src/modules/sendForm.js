@@ -36,8 +36,10 @@ export const sendForm = () => {
       if (validateForm(inputs, form)) {
         if (checkboxInput.checked) {
           sendData({ formBody })
-            .then(data => {
+            .then(() => {
               form.reset();
+              document.querySelector('.popup-consultation').style.visibility = 'hidden';
+              document.body.style.overflow = 'auto';
               modals(true, e);
             })
             .catch(err => {
