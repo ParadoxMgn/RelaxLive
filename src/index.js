@@ -5,6 +5,7 @@ import { modals } from './modules/modals';
 import { maskPhone } from './modules/maskPhone';
 import { sliderTypesOfRepairs } from './modules/sliderTypesOfRepairs';
 import { sendForm } from './modules/sendForm';
+import { sliderPortfolio } from './modules/sliderPortfolio';
 
 phoneList();
 burgerMenu();
@@ -13,3 +14,4 @@ modals();
 maskPhone();
 sliderTypesOfRepairs();
 sendForm();
+sliderPortfolio();

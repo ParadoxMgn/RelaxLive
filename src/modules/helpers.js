@@ -27,7 +27,7 @@ export const animate = ({ timing, draw, duration }) => {
 };
 
 /*================================================
-  import { animate } from './helper';
+  import { animate } from './helpers';
   ------------------------------------------------
   animate({
   duration: 1000,
