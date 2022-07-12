@@ -4,8 +4,6 @@ export const phoneList = () => {
   const phoneNumber = phoneNumberAccord.querySelector('.header-contacts__phone-number');
 
   contactsArrow.addEventListener('click', e => {
-    e.preventDefault();
-
     if (e.target.closest('.header-contacts__arrow') && !contactsArrow.dataset.key) {
       contactsArrow.dataset.key = '1';
       contactsArrow.querySelector('img').style.margin = '12px 5px';

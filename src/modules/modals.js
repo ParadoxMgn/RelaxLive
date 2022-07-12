@@ -5,8 +5,6 @@ export const modals = () => {
   const popupDialogRepairTypes = document.querySelector('.popup-dialog-repair-types');
 
   document.addEventListener('click', e => {
-    e.preventDefault();
-
     if ((e.target.closest('.popup-repair-types .close') || e.target === popupRepairTypes)) {
       popupRepairTypes.style.visibility = 'hidden';
       document.body.style.overflow = 'auto';

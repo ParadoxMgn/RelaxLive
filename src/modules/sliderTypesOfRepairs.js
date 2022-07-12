@@ -107,9 +107,6 @@ export const sliderTypesOfRepairs = () => {
   });
 
   repairTypes.addEventListener('click', e => {
-    e.preventDefault();
-
-
     if (e.target.closest('.repair-types-nav__item')) {
       repairTypesNavItem.forEach((item, index) => {
         item.classList.remove('active');
@@ -151,7 +148,6 @@ export const sliderTypesOfRepairs = () => {
     if (e.target.closest('.slider-arrow_right')) {
       arrowSlide(repairTypesSliderSlide, sliderCounterContentCurrent, 1, repairTypesSliderSlide.length, 0);
     }
-
 
     if (e.target.closest('.slider-arrow_left')) {
       arrowSlide(repairTypesSliderSlide, sliderCounterContentCurrent, -1, -1, repairTypesSliderSlide.length - 1);

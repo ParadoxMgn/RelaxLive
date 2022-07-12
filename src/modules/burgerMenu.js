@@ -2,8 +2,6 @@ export const burgerMenu = () => {
   const dialogMenu = document.querySelector('.popup-dialog-menu');
 
   document.addEventListener('click', e => {
-    e.preventDefault();
-
     if (e.target.closest('.menu__icon')) {
       dialogMenu.style.transform = 'translate3d(0, 0, 0)';
       document.body.style.overflow = 'hidden';
