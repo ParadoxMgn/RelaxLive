@@ -16,9 +16,12 @@ export const sendForm = () => {
   const getForm = (form) => {
     const inputs = form.querySelectorAll('input');
     const btn = form.querySelector('button');
-    const checkBox = form.querySelector('.checkbox__input');
+    const checkboxInput = form.querySelector('.checkbox__input');
+    const checkbox = form.querySelector('.checkbox');
+    const checkboxLabel = form.querySelector('.checkbox__label');
 
-    checkBox.removeAttribute('required');
+
+    checkboxInput.removeAttribute('required');
 
     const submitForm = (form) => {
       const formData = new FormData(form);
@@ -29,8 +32,8 @@ export const sendForm = () => {
           formBody[key] = val;
         }
       });
-      if (validateForm(inputs)) {
-        if (checkBox.checked) {
+      if (validateForm(inputs, form)) {
+        if (checkboxInput.checked) {
           sendData({ formBody })
             .then(data => {
               form.reset();
@@ -39,7 +42,8 @@ export const sendForm = () => {
               alert(err);
             });
         } else {
-          alert('Нужно согласиться с политикой конфиденциальности');
+          checkbox.style.borderBottom = '2px solid red';
+          checkboxLabel.style.border = '2px solid red';
         }
       }
     };
@@ -51,11 +55,13 @@ export const sendForm = () => {
 
       form.addEventListener('click', e => {
         if (e.target == btn) {
-          validateForm(inputs);
+          validateForm(inputs, form);
         }
 
         if (e.target.closest('.checkbox__input')) {
-          checkBox.checked = checkBox.checked ? true : false;
+          checkboxInput.checked = checkboxInput.checked ? true : false;
+          checkboxLabel.style.border = '1px solid #322823';
+          checkbox.style.borderBottom = 'none';
         }
 
       });

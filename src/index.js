@@ -6,6 +6,7 @@ import { maskPhone } from './modules/maskPhone';
 import { sliderTypesOfRepairs } from './modules/sliderTypesOfRepairs';
 import { sendForm } from './modules/sendForm';
 import { sliderPortfolio } from './modules/sliderPortfolio';
+import { sliderPopupPortfolio } from './modules/sliderPopupPortfolio';
 
 phoneList();
 burgerMenu();
@@ -15,3 +16,4 @@ maskPhone();
 sliderTypesOfRepairs();
 sendForm();
 sliderPortfolio();
+sliderPopupPortfolio();
