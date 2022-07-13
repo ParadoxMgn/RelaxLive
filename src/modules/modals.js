@@ -1,6 +1,6 @@
 import { animate } from './helpers';
 import { sliderDocsPopup } from './slider';
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Controller } from 'swiper';
 
 export const modals = (bool = false, e = '') => {
   const popupPortfolioSliderWrap = document.querySelector('.popup-portfolio-slider-wrap');
@@ -10,20 +10,25 @@ export const modals = (bool = false, e = '') => {
   const sliderCounterContentCurrent = popupPortfolioSliderWrap.querySelector('.slider-counter-content__current');
   const popupPortfolioText = document.querySelectorAll('.popup-portfolio-text');
   let numItem;
-  let slideDocsPopup;
+  let slideDocsPopup = null;
+  let slideDocsPopup1 = null;
 
   const popup = (e, popupClass, popupContent, links) => {
     if ((e.target.closest(`${popupClass} .close`) || e.target === document.querySelector(popupClass))) {
       document.querySelector(popupClass).style.visibility = 'hidden';
       document.body.style.overflow = 'auto';
 
-      if (popupClass === '.popup-transparency') {
+      if (popupClass === '.popup-transparency' || popupClass === '.popup-portfolio') {
         slideDocsPopup.destroy();
+        if (slideDocsPopup1) {
+          slideDocsPopup1.destroy();
+        }
       }
     }
 
     links.forEach(linkClass => {
-      if (e.target.closest(linkClass)) {
+      console.log(e.target);
+      if (e.target.classList.contains(linkClass)) {
 
         document.querySelector(popupClass).style.visibility = 'visible';
         document.body.style.overflow = 'hidden';
@@ -40,7 +45,7 @@ export const modals = (bool = false, e = '') => {
         });
 
         if (popupClass === '.popup-transparency') {
-          document.querySelectorAll(linkClass).forEach((item, index) => {
+          document.querySelectorAll(`.${linkClass}`).forEach((item, index) => {
             if (e.target === item) {
               slideDocsPopup = new Swiper('.popup-transparency-slider-wrap', {
                 speed: 400,
@@ -66,31 +71,46 @@ export const modals = (bool = false, e = '') => {
             }
           });
         }
+
+        if (popupClass === '.popup-portfolio') {
+          document.querySelectorAll(`.${linkClass}`).forEach((item, index) => {
+            if (e.target === item) {
+              slideDocsPopup = new Swiper('.popup-portfolio-slider-wrap', {
+                speed: 400,
+                loop: true,
+                modules: [Navigation, Pagination, Controller],
+                pagination: {
+                  el: '.swiper-pagination',
+                  type: 'fraction',
+                  renderFraction: function (currentClass, totalClass) {
+                    return `<div class="slider-counter-content">
+                                <div class="slider-counter-content__current ${currentClass}"></div>
+                                <div class="slider-counter-content__total ${totalClass}"></div>
+                              </div>`;
+                  },
+                },
+                navigation: {
+                  nextEl: '.swiper-btn-next',
+                  prevEl: '.swiper-btn-prev',
+                },
+                slidesPerView: 1,
+                initialSlide: index
+              });
+              slideDocsPopup1 = new Swiper('.swiper', {
+                speed: 400,
+                loop: true,
+                modules: [Navigation, Pagination, Controller],
+                slidesPerView: 1,
+                spaceBetween: 30,
+                initialSlide: index
+              });
+              slideDocsPopup.controller.control = slideDocsPopup1;
+              slideDocsPopup1.controller.control = slideDocsPopup;
+            }
+          });
+        }
       }
     });
-
-    if (popupClass === '.popup-portfolio') {
-      const portfolioSliderSlideFrame = portfolioSlider.querySelectorAll('.portfolio-slider__slide-frame');
-
-      portfolioSliderSlideFrame.forEach((item, index) => {
-        if (e.target === item) {
-          numItem = index;
-        }
-      });
-      popupPortfolioSliderSlide.forEach((item, index) => {
-        item.dataset.key = index + 1;
-
-        if (index === numItem) {
-          sliderCounterContentTotal.textContent = popupPortfolioSliderSlide.length;
-          sliderCounterContentCurrent.textContent = index;
-          item.style.display = 'block';
-          popupPortfolioText[index].style.display = 'block';
-        } else {
-          item.style.display = 'none';
-          popupPortfolioText[index].style.display = 'none';
-        }
-      });
-    }
   };
 
   if (bool) {
@@ -98,11 +118,11 @@ export const modals = (bool = false, e = '') => {
   }
 
   document.addEventListener('click', e => {
-    popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['.no-overflow', '.link-list-repair a']);
-    popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['.portfolio-slider__slide-frame']);
-    popup(e, '.popup-privacy', '.popup-dialog-privacy', ['.link-privacy']);
-    popup(e, '.popup-transparency', '.popup-dialog-transparency', ['.transparency-item__img']);
-    popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['.button_wide']);
+    popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['no-overflow', 'link-list-repair a']);
+    popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame-block']);
+    popup(e, '.popup-privacy', '.popup-dialog-privacy', ['link-privacy']);
+    popup(e, '.popup-transparency', '.popup-dialog-transparency', ['transparency-item__img']);
+    popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['button_wide']);
     popup(e, '.popup-thank', '.popup-thank-bg', []);
   });
 };
