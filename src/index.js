@@ -11,6 +11,7 @@ import { accordion } from './modules/accordion';
 import { getData } from './modules/getData';
 import { tooltip } from './modules/tooltip';
 import { sliderDocs } from './modules/slider';
+import { sliderBenefits } from './modules/slider';
 
 phoneList();
 burgerMenu();
@@ -25,3 +26,4 @@ accordion();
 getData();
 tooltip();
 sliderDocs();
+sliderBenefits();

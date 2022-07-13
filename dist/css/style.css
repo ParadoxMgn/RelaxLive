@@ -1166,6 +1166,12 @@ template,
   font-size: 18px;
 }
 
+@media (max-width: 1024px) {
+  .formula-slider-wrap {
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 575px) {
   .formula-slider-wrap {
     width: 290px;
@@ -4868,9 +4874,14 @@ div.wave-block:nth-child(17):after {
   }
 }
 
+.popup-dialog-portfolio .row {
+  height: 100%;
+}
+
+
 @media (max-width: 1024px) {
   .popup-dialog-portfolio {
-    height: 857px;
+    height: 930px;
   }
 }
 
@@ -5944,7 +5955,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
   .popup-portfolio-text-block {
-    padding: 15px;
+    padding: 0 15px;
     width: 768px;
   }
 }
@@ -6016,7 +6027,6 @@ div.wave-block:nth-child(17):after {
   -ms-flex-direction: column;
   flex-direction: column;
   width: 276px;
-  margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
   color: #322823;
@@ -6146,7 +6156,7 @@ div.wave-block:nth-child(17):after {
   -ms-flex-pack: justify;
   justify-content: space-between;
   min-height: 240px;
-  padding: 22px 0 0 0;
+  padding: 0;
 }
 
 @media (max-width: 1024px) {

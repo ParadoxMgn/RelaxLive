@@ -7,56 +7,12 @@
   display: none;
 }
 
-.swiper-btn-next,
-.swiper-btn-prev {
-  position: absolute;
-  width: 28px;
-  height: 40px;
-  top: 50%;
-  margin-top: -20px;
-  z-index: 10;
+/* .swiper-slide-active .formula-item__icon {
+  transform: scale(1.3);
 }
 
-.swiper-btn-next svg path,
-.swiper-btn-prev svg path {
-  stroke-opacity: 0.8;
-}
+.formula-item.swiper-slide-active {
+  transform: translateY(10px);
+} */
 
-.swiper-btn-next:hover,
-.swiper-btn-prev:hover {
-  cursor: pointer;
-}
-
-.swiper-btn-next:hover svg path,
-.swiper-btn-prev:hover svg path {
-  stroke-opacity: 1;
-}
-
-.swiper-btn-prev {
-  left: 15px;
-}
-
-.swiper-btn-next {
-  right: 15px;
-}
-
-@media (max-width: 575px) {
-
-  .swiper-btn-next,
-  .swiper-btn-prev {
-    width: 16px;
-    margin-top: -12px;
-  }
-
-  .swiper-btn-next svg,
-  .swiper-btn-prev svg {
-    width: 18px;
-    height: 25px;
-  }
-
-  .swiper-btn-next svg path,
-  .swiper-btn-prev svg path {
-    stroke-width: 6;
-    stroke-opacity: 1;
-  }
-}
+/* formula-item formula-slider__slide swiper-slide swiper-slide-duplicate swiper-slide-active */

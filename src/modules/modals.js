@@ -13,6 +13,8 @@ export const modals = (bool = false, e = '') => {
   let slideDocsPopup = null;
   let slideDocsPopup1 = null;
 
+  // sliderCounterContentCurrent.nodeName
+
   const popup = (e, popupClass, popupContent, links) => {
     if ((e.target.closest(`${popupClass} .close`) || e.target === document.querySelector(popupClass))) {
       document.querySelector(popupClass).style.visibility = 'hidden';
@@ -26,10 +28,10 @@ export const modals = (bool = false, e = '') => {
       }
     }
 
-    links.forEach(linkClass => {
-      console.log(e.target);
-      if (e.target.classList.contains(linkClass)) {
 
+
+    links.forEach(linkClass => {
+      if (e.target.classList.contains(linkClass) || e.target.nodeName === linkClass) {
         document.querySelector(popupClass).style.visibility = 'visible';
         document.body.style.overflow = 'hidden';
         document.querySelector(popupContent).style.opacity = '0';
@@ -90,11 +92,11 @@ export const modals = (bool = false, e = '') => {
                   },
                 },
                 navigation: {
-                  nextEl: '.swiper-btn-next',
-                  prevEl: '.swiper-btn-prev',
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
                 },
                 slidesPerView: 1,
-                initialSlide: index
+                initialSlide: index >= 10 ? index - 10 : index - 1
               });
               slideDocsPopup1 = new Swiper('.swiper', {
                 speed: 400,
@@ -102,7 +104,7 @@ export const modals = (bool = false, e = '') => {
                 modules: [Navigation, Pagination, Controller],
                 slidesPerView: 1,
                 spaceBetween: 30,
-                initialSlide: index
+                initialSlide: index > 10 ? index - 11 : index - 1
               });
               slideDocsPopup.controller.control = slideDocsPopup1;
               slideDocsPopup1.controller.control = slideDocsPopup;
@@ -114,12 +116,12 @@ export const modals = (bool = false, e = '') => {
   };
 
   if (bool) {
-    popup(e, '.popup-thank', '.popup-thank-bg', ['form']);
+    popup(e, '.popup-thank', '.popup-thank-bg', ['FORM']);
   }
 
   document.addEventListener('click', e => {
     popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['no-overflow', 'link-list-repair a']);
-    popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame-block']);
+    popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame']);
     popup(e, '.popup-privacy', '.popup-dialog-privacy', ['link-privacy']);
     popup(e, '.popup-transparency', '.popup-dialog-transparency', ['transparency-item__img']);
     popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['button_wide']);

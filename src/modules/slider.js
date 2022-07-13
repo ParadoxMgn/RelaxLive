@@ -36,7 +36,7 @@ export const sliderPortfolioMobile = () => {
     }
   };
 
-  if (!catalogSlider) {
+  if (!catalogSlider && document.documentElement.clientWidth < mediaQuerySize) {
     catalogSliderInit();
   }
 
@@ -122,6 +122,62 @@ export const sliderDocs = () => {
           prevEl: '.swiper-button-prev3',
         },
         slidesPerView: 1
+      });
+    }
+  };
+
+  function catalogSliderDestroy() {
+    if (catalogSlider) {
+      catalogSlider.destroy();
+      catalogSlider = null;
+    }
+  }
+
+  if (!catalogSlider && document.documentElement.clientWidth <= mediaQuerySize) {
+    catalogSliderInit();
+  }
+
+  window.addEventListener('resize', () => {
+    const windowWidth = document.documentElement.clientWidth;
+
+    if (windowWidth <= mediaQuerySize) {
+      catalogSliderInit();
+    } else {
+      catalogSliderDestroy();
+    }
+  });
+};
+
+export const sliderBenefits = () => {
+  let catalogSlider = null;
+  let mediaQuerySize = 1024;
+
+  const catalogSliderInit = () => {
+    if (!catalogSlider) {
+      catalogSlider = new Swiper('.formula-slider-wrap', {
+        speed: 700,
+        spaceBetween: 20,
+        loop: true,
+        modules: [Navigation, Pagination],
+        navigation: {
+          nextEl: '.swiper-button-next4',
+          prevEl: '.swiper-button-prev4',
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1
+          },
+          768: {
+            slidesPerView: 3
+          }
+        },
+        slideToClickedSlide: true,
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 10,
+          stretch: 0,
+          slideShadows: true
+        }
       });
     }
   };
