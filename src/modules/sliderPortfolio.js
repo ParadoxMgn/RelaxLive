@@ -56,7 +56,6 @@ export const sliderPortfolio = () => {
         draw(progress) {
           if (direction === 'right') {
             slide.style.transform = `translateX(${(352 * (count + 1)) + ((352 * count) - (352 * (count + 1))) * progress}px)`;
-            console.log(slide.style.transform);
           }
           if (direction === 'left') {
             slide.style.transform = `translateX(${(352 * (count)) + ((352 * (count - 1)) - (352 * (count))) * (1 - progress)}px)`;

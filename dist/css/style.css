@@ -2428,7 +2428,8 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1090px) {
   .transparency-slider.row {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 
@@ -6411,7 +6412,7 @@ div.wave-block:nth-child(17):after {
   width: 432px;
   height: 565px;
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 @media (max-width: 575px) {

@@ -10,9 +10,7 @@ export const tooltip = () => {
         const scrollTopElement = formulaItemIcon[index].getBoundingClientRect();
         const height = getComputedStyle(formulaItemPopup[index]);
 
-        console.log(height.height);
-
-        if (scrollTopElement.y > 170) {
+        if (scrollTopElement.y > +height.height.slice(0, -2) + 20) {
           formulaItemPopup[index].style.transform = `rotate(0)`;
           formulaItemPopupBlock[index].style.transform = `rotate(0)`;
           formulaItemPopup[index].style.bottom = `100px`;

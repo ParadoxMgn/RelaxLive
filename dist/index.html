@@ -10,7 +10,9 @@
   <link
     href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700,800,900&amp;subset=cyrillic,cyrillic-ext"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/slide.css">
   <script src="./js/main.js" defer></script>
   <title>Relax Live</title>
 </head>
@@ -763,8 +765,8 @@
       </div>
       <div class="section-subtitle">Никаких скрытых платежей и сорванных сроков!</div>
       <div class="transparency-slider-wrap">
-        <div class="transparency-slider row">
-          <div class="transparency-item">
+        <div class="transparency-slider row swiper-wrapper">
+          <div class="transparency-item swiper-slide">
             <div class="transparency-item__img">
               <img src="./images/transparency/item_img.jpg" alt="document">
               <div class="item-hover"><img src="./images/zoom.svg" alt="zoom"> <span>Нажмите, чтобы<br>увеличить</span>
@@ -778,7 +780,7 @@
               выполнения работы, прав и обязанности сторон.
             </div>
           </div>
-          <div class="transparency-item">
+          <div class="transparency-item swiper-slide">
             <div class="transparency-item__img">
               <img src="./images/transparency/item_img.jpg" alt="document">
               <div class="item-hover"><img src="./images/zoom.svg" alt="zoom"> <span>Нажмите, чтобы<br>увеличить</span>
@@ -793,7 +795,7 @@
               накладных расходов. После этого смета на протяжении строительства не меняется.
             </div>
           </div>
-          <div class="transparency-item">
+          <div class="transparency-item swiper-slide">
             <div class="transparency-item__img">
               <img src="./images/transparency/item_img.jpg" alt="document">
               <div class="item-hover"><img src="./images/zoom.svg" alt="zoom"> <span>Нажмите, чтобы<br>увеличить</span>
@@ -808,7 +810,7 @@
             </div>
           </div>
         </div><!-- /transparency-slider row -->
-        <div class="slider-arrow slider-arrow_left" id="transparency-arrow_left">
+        <div class="slider-arrow slider-arrow_left swiper-button-prev" id="transparency-arrow_left">
           <svg width="18" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12"
             preserveAspectRatio="xMinYMin meet">
             <path
@@ -816,7 +818,7 @@
               fill="#322823"></path>
           </svg>
         </div>
-        <div class="slider-arrow slider-arrow_right" id="transparency-arrow_right">
+        <div class="slider-arrow slider-arrow_right swiper-button-next" id="transparency-arrow_right">
           <svg width="17" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12"
             preserveAspectRatio="xMinYMin meet">
             <path
@@ -1902,16 +1904,16 @@
         </svg>
       </div>
       <div class="popup-transparency-slider-wrap">
-        <div class="popup-transparency-slider">
-          <div class="popup-transparency-slider__slide"><img class="mobile-hide"
+        <div class="popup-transparency-slider swiper-wrapper">
+          <div class="popup-transparency-slider__slide swiper-slide"><img class="mobile-hide"
               src="./images/popup/transparency-slide1.jpg" alt="">
             <img class="tablet-hide desktop-hide" src="./images/popup/mobile1.jpg" alt="">
           </div>
-          <div class="popup-transparency-slider__slide"><img class="mobile-hide"
+          <div class="popup-transparency-slider__slide swiper-slide"><img class="mobile-hide"
               src="./images/popup/transparency-slide2.jpg" alt="">
             <img class="tablet-hide desktop-hide" src="./images/popup/mobile1.jpg" alt="">
           </div>
-          <div class="popup-transparency-slider__slide"><img class="mobile-hide"
+          <div class="popup-transparency-slider__slide swiper-slide"><img class="mobile-hide"
               src="./images/popup/transparency-slide3.jpg" alt="">
             <img class="tablet-hide desktop-hide" src="./images/popup/mobile1.jpg" alt="">
           </div>
@@ -1922,13 +1924,15 @@
             <div class="slider-counter-content__total"></div>
           </div>
         </div>
-        <div class="popup-arrow popup-arrow_transparency popup-arrow_transparency_left" id="transparency_left">
+        <div class="popup-arrow popup-arrow_transparency popup-arrow_transparency_left swiper-button-prev"
+          id="transparency_left">
           <svg width="18" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.543 23.205L1 12.103 16.543 1.002" stroke="#fff" stroke-opacity=".5" stroke-width="1.665"
               stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </div>
-        <div class="popup-arrow popup-arrow_transparency popup-arrow_transparency_right" id="transparency_right">
+        <div class="popup-arrow popup-arrow_transparency popup-arrow_transparency_right swiper-button-next"
+          id="transparency_right">
           <svg width="18" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.458 1L17 12.102 1.458 23.204" stroke="#fff" stroke-opacity=".5" stroke-width="1.665"
               stroke-linecap="round" stroke-linejoin="round"></path>

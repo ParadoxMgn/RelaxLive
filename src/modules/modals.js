@@ -1,4 +1,6 @@
 import { animate } from './helpers';
+import { sliderDocsPopup } from './slider';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 export const modals = (bool = false, e = '') => {
   const popupPortfolioSliderWrap = document.querySelector('.popup-portfolio-slider-wrap');
@@ -8,11 +10,16 @@ export const modals = (bool = false, e = '') => {
   const sliderCounterContentCurrent = popupPortfolioSliderWrap.querySelector('.slider-counter-content__current');
   const popupPortfolioText = document.querySelectorAll('.popup-portfolio-text');
   let numItem;
+  let slideDocsPopup;
 
   const popup = (e, popupClass, popupContent, links) => {
     if ((e.target.closest(`${popupClass} .close`) || e.target === document.querySelector(popupClass))) {
       document.querySelector(popupClass).style.visibility = 'hidden';
       document.body.style.overflow = 'auto';
+
+      if (popupClass === '.popup-transparency') {
+        slideDocsPopup.destroy();
+      }
     }
 
     links.forEach(linkClass => {
@@ -31,6 +38,34 @@ export const modals = (bool = false, e = '') => {
             document.querySelector(popupContent).style.opacity = progress;
           }
         });
+
+        if (popupClass === '.popup-transparency') {
+          document.querySelectorAll(linkClass).forEach((item, index) => {
+            if (e.target === item) {
+              slideDocsPopup = new Swiper('.popup-transparency-slider-wrap', {
+                speed: 400,
+                spaceBetween: 500,
+
+                modules: [Navigation, Pagination],
+
+                direction: 'vertical',
+                loop: true,
+
+                pagination: {
+                  el: '.swiper-pagination',
+                },
+
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+
+                slidesPerView: 1,
+                initialSlide: index,
+              });
+            }
+          });
+        }
       }
     });
 
@@ -66,7 +101,7 @@ export const modals = (bool = false, e = '') => {
     popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['.no-overflow', '.link-list-repair a']);
     popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['.portfolio-slider__slide-frame']);
     popup(e, '.popup-privacy', '.popup-dialog-privacy', ['.link-privacy']);
-    popup(e, '.popup-transparency', '.popup-dialog-transparency', ['.transparency-item']);
+    popup(e, '.popup-transparency', '.popup-dialog-transparency', ['.transparency-item__img']);
     popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['.button_wide']);
     popup(e, '.popup-thank', '.popup-thank-bg', []);
   });
