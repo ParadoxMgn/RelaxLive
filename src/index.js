@@ -12,6 +12,9 @@ import { getData } from './modules/getData';
 import { tooltip } from './modules/tooltip';
 import { sliderDocs } from './modules/slider';
 import { sliderBenefits } from './modules/slider';
+import { sliderReviews } from './modules/slider';
+import { sliderServices } from './modules/slider';
+import { sliderRepairTypes } from './modules/slider';
 
 phoneList();
 burgerMenu();
@@ -27,3 +30,6 @@ getData();
 tooltip();
 sliderDocs();
 sliderBenefits();
+sliderReviews();
+sliderServices();
+sliderRepairTypes();

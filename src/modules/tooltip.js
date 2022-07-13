@@ -38,6 +38,8 @@ export const tooltip = () => {
   });
 
   formula.addEventListener('mouseout', e => {
+    formulaSliderSlide = formula.querySelectorAll('.formula-slider__slide');
+
     formulaItemIcon.forEach((item, index) => {
       if (item === e.target.closest('.formula-item__icon') && !e.target.closest('.formula-item-popup')) {
         formulaItem[index].classList.remove('active-item');
@@ -52,6 +54,5 @@ export const tooltip = () => {
         item.classList.remove('active-item');
       }
     });
-    formulaSliderSlide = formula.querySelectorAll('.formula-slider__slide');
   });
 };

@@ -13,8 +13,6 @@ export const modals = (bool = false, e = '') => {
   let slideDocsPopup = null;
   let slideDocsPopup1 = null;
 
-  // sliderCounterContentCurrent.nodeName
-
   const popup = (e, popupClass, popupContent, links) => {
     if ((e.target.closest(`${popupClass} .close`) || e.target === document.querySelector(popupClass))) {
       document.querySelector(popupClass).style.visibility = 'hidden';
@@ -31,7 +29,8 @@ export const modals = (bool = false, e = '') => {
 
 
     links.forEach(linkClass => {
-      if (e.target.classList.contains(linkClass) || e.target.nodeName === linkClass) {
+      if (e.target.classList.contains(linkClass) || e.target.nodeName === linkClass || e.target.closest(`.${linkClass}`)) {
+
         document.querySelector(popupClass).style.visibility = 'visible';
         document.body.style.overflow = 'hidden';
         document.querySelector(popupContent).style.opacity = '0';
@@ -104,7 +103,7 @@ export const modals = (bool = false, e = '') => {
                 modules: [Navigation, Pagination, Controller],
                 slidesPerView: 1,
                 spaceBetween: 30,
-                initialSlide: index > 10 ? index - 11 : index - 1
+                initialSlide: index >= 10 ? index - 10 : index - 1
               });
               slideDocsPopup.controller.control = slideDocsPopup1;
               slideDocsPopup1.controller.control = slideDocsPopup;
@@ -119,7 +118,11 @@ export const modals = (bool = false, e = '') => {
     popup(e, '.popup-thank', '.popup-thank-bg', ['FORM']);
   }
 
+  const noOverflow = document.querySelectorAll('.link-list-repair a');
+
   document.addEventListener('click', e => {
+    e.preventDefault();
+
     popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['no-overflow', 'link-list-repair a']);
     popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame']);
     popup(e, '.popup-privacy', '.popup-dialog-privacy', ['link-privacy']);

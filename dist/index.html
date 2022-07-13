@@ -117,8 +117,8 @@
             </div>
           </div><!-- services-item - 4-->
         </div><!-- /row -->
-        <div class="services-slider">
-          <div class="services-slider__slide services-item">
+        <div class="services-slider swiper-wrapper">
+          <div class="swiper-slide services-slider__slide services-item">
             <div class="services-item__img"><img src="./images/main/circle.svg" alt="circle"> <img
                 class="services-item__img-inner-1" src="./images/main/circle_1_icon.svg" alt="circle">
             </div>
@@ -126,7 +126,7 @@
               <img src="./images/main/subtract1.svg" alt="ремонта">
             </div>
           </div><!-- services-item - 1-->
-          <div class="services-slider__slide services-item">
+          <div class="swiper-slide services-slider__slide services-item">
             <div class="services-item__img"><img src="./images/main/circle.svg" alt="circle"> <img
                 class="services-item__img-inner-2" src="./images/main/circle_2_icon.svg" alt="circle">
             </div>
@@ -136,7 +136,7 @@
               </div>
             </div>
           </div><!-- services-item - 2-->
-          <div class="services-slider__slide services-item">
+          <div class="swiper-slide services-slider__slide services-item">
             <div class="services-item__img"><img src="./images/main/circle.svg" alt="circle"> <img
                 class="services-item__img-inner-3" src="./images/main/circle_3_icon.svg" alt="circle">
             </div>
@@ -144,7 +144,7 @@
               <img src="./images/main/subtract3.svg" alt="материалов">
             </div>
           </div><!-- services-item - 3-->
-          <div class="services-slider__slide services-item">
+          <div class="swiper-slide services-slider__slide services-item">
             <div class="services-item__img"><img src="./images/main/circle.svg" alt="circle">
               <div class="services-item__img-inner-4">
                 <svg width="53" height="53" fill="none" viewBox="0 0 53 53" preserveAspectRatio="xMinYMin meet"
@@ -961,7 +961,7 @@
   <div class="reviews" id="reviews">
     <div class="section-title reviews__title">Мы рады делать <span>клиентов счастливыми</span></div>
     <div class="reviews-slider-wrap">
-      <div class="slider-arrow slider-arrow_left slider-arrow_left" id="reviews-arrow_left">
+      <div class="slider-arrow slider-arrow_left swiper-button-next5" id="reviews-arrow_left">
         <svg width="17" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 12"
           preserveAspectRatio="xMinYMin meet">
           <path
@@ -969,7 +969,7 @@
             fill="#322823"></path>
         </svg>
       </div>
-      <div class="slider-arrow slider-arrow_right" id="reviews-arrow_right">
+      <div class="slider-arrow slider-arrow_right swiper-button-prev5" id="reviews-arrow_right">
         <svg width="17" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 12"
           preserveAspectRatio="xMinYMin meet">
           <path
@@ -977,8 +977,8 @@
             fill="#322823"></path>
         </svg>
       </div>
-      <div class="reviews-slider">
-        <div class="reviews-slider__slide">
+      <div class="reviews-slider swiper-wrapper">
+        <div class="reviews-slider__slide swiper-slide">
           <div class="reviews-slider__slide-img"><img src="./images/reviews/ava1.jpg" alt=""></div>
           <div class="reviews-slider__slide-date">05.02.2020</div>
           <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
@@ -986,7 +986,7 @@
             ключ* в моей однокомнатной квартире. Предварительная смета была расписана подробно, понятно по каждому виду
             работ. Фактическая смета ... <a class="link-reviews-detail">Подробнее</a></div>
         </div>
-        <div class="reviews-slider__slide">
+        <div class="reviews-slider__slide swiper-slide">
           <div class="reviews-slider__slide-img"><img src="./images/reviews/ava2.jpg" alt=""></div>
           <div class="reviews-slider__slide-date">08.03.2020</div>
           <div class="reviews-slider__slide-title">Дюгурова Анютка</div>
@@ -995,7 +995,7 @@
             работ. Фактическая смета Выражаю свою благодарность компании, проводившей полный ремонт *под ключ* в моей
             однокомнатной квартире... <a class="link-reviews-detail">Подробнее</a></div>
         </div>
-        <div class="reviews-slider__slide">
+        <div class="reviews-slider__slide swiper-slide">
           <div class="reviews-slider__slide-img"><img src="./images/reviews/ava3.jpg" alt=""></div>
           <div class="reviews-slider__slide-date">05.12.2020</div>
           <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
@@ -1003,7 +1003,7 @@
             ключ* в моей однокомнатной квартире. Предварительная смета была расписана подробно, понятно по каждому виду
             работ. Фактическая смета ... <a class="link-reviews-detail">Подробнее</a></div>
         </div>
-        <div class="reviews-slider__slide">
+        <div class="reviews-slider__slide swiper-slide">
           <div class="reviews-slider__slide-img"><img src="./images/reviews/ava4.jpg" alt=""></div>
           <div class="reviews-slider__slide-date">05.02.2020</div>
           <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
@@ -1012,7 +1012,7 @@
             работ. Фактическая смета Выражаю свою благодарность компании, проводившей полный ремонт *под ключ* в моей
             однокомнатной квартире... <a class="link-reviews-detail">Подробнее</a></div>
         </div>
-        <div class="reviews-slider__slide">
+        <div class="reviews-slider__slide swiper-slide">
           <div class="reviews-slider__slide-img"><img src="./images/reviews/ava5.jpg" alt=""></div>
           <div class="reviews-slider__slide-date">05.02.2020</div>
           <div class="reviews-slider__slide-title">Анютка Дюгурова</div>
@@ -1457,22 +1457,23 @@
           </div><!-- /popup-repair-types-nav__title -->
           <div class="nav-wrap nav-wrap-repair">
             <nav class="nav-popup nav-popup-repair-types transparancy-cut">
-              <div class="nav-list nav-list-popup-repair">
-                <button class="button_o popup-repair-types-nav__item active">Потолок: Демонтажные работы</button>
-                <button class="button_o popup-repair-types-nav__item">Потолок: Монтажные работы</button>
-                <button class="button_o popup-repair-types-nav__item">Стена: Демонтажные работы</button>
-                <button class="button_o popup-repair-types-nav__item">Стены: Монтажные работы</button>
-                <button class="button_o popup-repair-types-nav__item">Муж на час</button>
-                <button class="button_o popup-repair-types-nav__item">Электромонтажные работы</button>
+              <div class="nav-list nav-list-popup-repair swiper-wrapper">
+                <button class="button_o popup-repair-types-nav__item swiper-slide active">Потолок: Демонтажные работы
+                </button>
+                <button class="button_o popup-repair-types-nav__item swiper-slide">Потолок: Монтажные работы</button>
+                <button class="button_o popup-repair-types-nav__item swiper-slide">Стена: Демонтажные работы</button>
+                <button class="button_o popup-repair-types-nav__item swiper-slide">Стены: Монтажные работы</button>
+                <button class="button_o popup-repair-types-nav__item swiper-slide">Муж на час</button>
+                <button class="button_o popup-repair-types-nav__item swiper-slide">Электромонтажные работы</button>
               </div>
             </nav><!-- /.repair-types__nav -->
-            <div class="nav-arrow nav-arrow_left desktop-hide" id="nav-arrow-popup-repair_left">
+            <div class="nav-arrow nav-arrow_left desktop-hide swiper-button-prev" id="nav-arrow-popup-repair_left">
               <svg width="12" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 1L1 8l10 7" stroke="#322823" stroke-width=".3" stroke-linecap="round"
                   stroke-linejoin="round"></path>
               </svg>
             </div>
-            <div class="nav-arrow nav-arrow_right desktop-hide" id="nav-arrow-popup-repair_right">
+            <div class="nav-arrow nav-arrow_right desktop-hide swiper-button-next" id="nav-arrow-popup-repair_right">
               <svg width="12" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1l10 7-10 7" stroke="#322823" stroke-width=".3" stroke-linecap="round"
                   stroke-linejoin="round"></path>

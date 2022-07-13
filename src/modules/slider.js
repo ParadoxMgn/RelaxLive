@@ -203,3 +203,131 @@ export const sliderBenefits = () => {
     }
   });
 };
+
+export const sliderReviews = () => {
+  let catalogSlider = null;
+  let mediaQuerySize = 3800;
+
+  const catalogSliderInit = () => {
+    if (!catalogSlider) {
+      catalogSlider = new Swiper('.reviews-slider-wrap', {
+        speed: 500,
+        spaceBetween: 1650,
+        loop: true,
+        modules: [Navigation, Pagination],
+        navigation: {
+          nextEl: '.swiper-button-next5',
+          prevEl: '.swiper-button-prev5',
+        },
+        slidesPerView: 1
+      });
+    }
+  };
+
+  function catalogSliderDestroy() {
+    if (catalogSlider) {
+      catalogSlider.destroy();
+      catalogSlider = null;
+    }
+  }
+
+  if (!catalogSlider && document.documentElement.clientWidth <= mediaQuerySize) {
+    catalogSliderInit();
+  }
+
+  window.addEventListener('resize', () => {
+    const windowWidth = document.documentElement.clientWidth;
+
+    if (windowWidth <= mediaQuerySize) {
+      catalogSliderInit();
+    } else {
+      catalogSliderDestroy();
+    }
+  });
+};
+
+export const sliderServices = () => {
+  let catalogSlider = null;
+  let mediaQuerySize = 575;
+
+  const catalogSliderInit = () => {
+    if (!catalogSlider) {
+      catalogSlider = new Swiper('.services', {
+        speed: 500,
+        spaceBetween: 500,
+        loop: true,
+        modules: [Navigation, Pagination],
+        slidesPerView: 1
+      });
+    }
+  };
+
+  function catalogSliderDestroy() {
+    if (catalogSlider) {
+      catalogSlider.destroy();
+      catalogSlider = null;
+    }
+  }
+
+  if (!catalogSlider && document.documentElement.clientWidth <= mediaQuerySize) {
+    catalogSliderInit();
+  }
+
+  window.addEventListener('resize', () => {
+    const windowWidth = document.documentElement.clientWidth;
+
+    if (windowWidth <= mediaQuerySize) {
+      catalogSliderInit();
+    } else {
+      catalogSliderDestroy();
+    }
+  });
+};
+
+export const sliderRepairTypes = () => {
+  let catalogSlider = null;
+  let mediaQuerySize = 1024;
+
+  const catalogSliderInit = () => {
+    if (!catalogSlider) {
+      catalogSlider = new Swiper('.nav-popup-repair-types', {
+        speed: 400,
+        spaceBetween: 20,
+        modules: [Navigation, Pagination],
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        slidesPerView: 1,
+        slideToClickedSlide: true,
+        centeredSlides: true,
+        breakpoints: {
+          576: {
+            slidesPerView: 2
+          }
+        }
+      });
+    }
+  };
+
+  function catalogSliderDestroy() {
+    if (catalogSlider) {
+      catalogSlider.destroy();
+      catalogSlider = null;
+    }
+  }
+
+  if (!catalogSlider && document.documentElement.clientWidth <= mediaQuerySize) {
+    catalogSliderInit();
+  }
+
+  window.addEventListener('resize', () => {
+    const windowWidth = document.documentElement.clientWidth;
+
+    if (windowWidth <= mediaQuerySize) {
+      catalogSliderInit();
+    } else {
+      catalogSliderDestroy();
+    }
+  });
+};

@@ -3,13 +3,14 @@ export const render = (data) => {
   const popupRepairTypesContentTableList = document.querySelector('.popup-repair-types-content-table__list');
   const tBody = popupRepairTypesContentTableList.querySelector('tbody');
   const title = document.querySelector('.popup-repair-types-content__head-title');
+  const popupRepairTypesNavItem = document.querySelectorAll('.popup-repair-types-nav__item');
 
   const renderTable = (data, text = 'Потолок: Демонтажные работы') => {
     tBody.innerHTML = '';
     title.textContent = text;
 
     data.forEach(item => {
-      if (item.type === text) {
+      if (item.type.trim() === text.trim()) {
         tBody.insertAdjacentHTML('beforeend',
           `<tr class="mobile-row">
              <td class="repair-types-name">${item.name}</td>
@@ -27,6 +28,14 @@ export const render = (data) => {
   navListPopupRepair.addEventListener('click', e => {
     e.preventDefault();
 
-    renderTable(data, e.target.textContent);
+    popupRepairTypesNavItem.forEach((item, index) => {
+      item.classList.remove('active');
+
+      if (e.target === item) {
+        renderTable(data, e.target.textContent);
+
+        e.target.classList.add('active');
+      }
+    });
   });
 };
