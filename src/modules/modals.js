@@ -1,22 +1,14 @@
 import { animate } from './helpers';
-import { sliderDocsPopup } from './slider';
 import Swiper, { Navigation, Pagination, Controller } from 'swiper';
 
 export const modals = (bool = false, e = '') => {
-  const popupPortfolioSliderWrap = document.querySelector('.popup-portfolio-slider-wrap');
-  const portfolioSlider = document.querySelector('.portfolio-slider');
-  const sliderCounterContentTotal = popupPortfolioSliderWrap.querySelector('.slider-counter-content__total');
-  const popupPortfolioSliderSlide = popupPortfolioSliderWrap.querySelectorAll('.popup-portfolio-slider__slide');
-  const sliderCounterContentCurrent = popupPortfolioSliderWrap.querySelector('.slider-counter-content__current');
-  const popupPortfolioText = document.querySelectorAll('.popup-portfolio-text');
-  let numItem;
   let slideDocsPopup = null;
   let slideDocsPopup1 = null;
 
   const popup = (e, popupClass, popupContent, links) => {
     if ((e.target.closest(`${popupClass} .close`) || e.target === document.querySelector(popupClass))) {
       document.querySelector(popupClass).style.visibility = 'hidden';
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
 
       if (popupClass === '.popup-repair-types') {
         document.querySelector(popupClass).style.display = 'none';
@@ -30,12 +22,10 @@ export const modals = (bool = false, e = '') => {
       }
     }
 
-
-
     links.forEach(linkClass => {
       if (e.target.classList.contains(linkClass) || e.target.nodeName === linkClass || e.target.closest(`.${linkClass}`)) {
         document.querySelector(popupClass).style.visibility = 'visible';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflowY = 'hidden';
         document.querySelector(popupContent).style.opacity = '0';
 
         if (popupClass === '.popup-repair-types') {
@@ -124,8 +114,6 @@ export const modals = (bool = false, e = '') => {
   if (bool) {
     popup(e, '.popup-thank', '.popup-thank-bg', ['FORM']);
   }
-
-  const noOverflow = document.querySelectorAll('.link-list-repair a');
 
   document.addEventListener('click', e => {
     if (e.target.closest('.no-overflow') || e.target.closest('.link-list-repair a') || (e.target.closest(`.popup-repair-types .close`) || e.target === document.querySelector('.popup-repair-types'))) {

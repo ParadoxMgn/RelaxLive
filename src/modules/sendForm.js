@@ -61,7 +61,7 @@ export const sendForm = () => {
         if (e.target == btn) {
           validateForm(inputs, form);
         }
-        console.log(e.target.closest('.checkbox__input'));
+
         if (e.target.closest('.checkbox__input')) {
 
           checkboxInput.checked = checkboxInput.checked ? true : false;

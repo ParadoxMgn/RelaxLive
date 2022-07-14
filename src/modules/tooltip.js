@@ -18,10 +18,11 @@ export const tooltip = () => {
     formulaItemIcon.forEach((item, index) => {
       if (item === e.target.closest('.formula-item__icon') && !e.target.closest('.formula-item-popup')) {
         const scrollTopElement = formulaItemIcon[index].getBoundingClientRect();
-        const style = getComputedStyle(formulaItem[index]);
+        const style = getComputedStyle(formulaItemPopup[index]);
         formulaItem[index].classList.add('active-item');
 
-        if (scrollTopElement.y < +style.height.slice(0, -2) + 20) {
+        if (scrollTopElement.y < +style.height.slice(0, -2) + (+style.paddingTop.slice(0, -2))) {
+
           formulaItemPopup[index].style.transform = `rotate(180deg)`;
           formulaItemPopupBlock[index].style.transform = `rotate(180deg)`;
           formulaItemPopup[index].style.bottom = `-${+style.height.slice(0, -2) + 70}px`;
