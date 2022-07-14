@@ -18,6 +18,9 @@ export const modals = (bool = false, e = '') => {
       document.querySelector(popupClass).style.visibility = 'hidden';
       document.body.style.overflow = 'auto';
 
+      if (popupClass === '.popup-repair-types') {
+        document.querySelector(popupClass).style.display = 'none';
+      }
 
       if (popupClass === '.popup-transparency' || popupClass === '.popup-portfolio') {
         slideDocsPopup.destroy();
@@ -34,6 +37,10 @@ export const modals = (bool = false, e = '') => {
         document.querySelector(popupClass).style.visibility = 'visible';
         document.body.style.overflow = 'hidden';
         document.querySelector(popupContent).style.opacity = '0';
+
+        if (popupClass === '.popup-repair-types') {
+          document.querySelector(popupClass).style.display = 'flex';
+        }
 
         animate({
           duration: 500,
