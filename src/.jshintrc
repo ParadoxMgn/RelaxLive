@@ -13,6 +13,6 @@
   "esversion": 9,
   "node": true,
   "globals": {
-    "userService": true
+    "dbService": true
   }
 }

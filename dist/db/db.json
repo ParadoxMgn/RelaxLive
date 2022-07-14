@@ -1,11 +1,53 @@
 {
-  "users": [
+  "users": {
+    "name": "user",
+    "password": "12345678"
+  },
+  "contacts": [
     {
-      "name": "user",
-      "password": "12345678"
+      "formBody": {
+        "phone": "+7 (887) 455-52-14",
+        "checkbox1": "on"
+      },
+      "id": 1
+    },
+    {
+      "formBody": {
+        "phone": "+7 (887) 455-52-14",
+        "checkbox1": "on"
+      },
+      "id": 2
+    },
+    {
+      "formBody": {
+        "phone": "+7 (887) 455-52-14",
+        "checkbox1": "on"
+      },
+      "id": 3
+    },
+    {
+      "formBody": {
+        "phone": "+7 (887) 455-52-14",
+        "checkbox1": "on"
+      },
+      "id": 4
+    },
+    {
+      "formBody": {
+        "phone": "+7 (887) 455-52-14",
+        "checkbox1": "on"
+      },
+      "id": 5
+    },
+    {
+      "formBody": {
+        "phone": "+7 (887) 455-52-14",
+        "checkbox1": "on"
+      },
+      "id": 6
     }
   ],
-  "db": [
+  "data": [
     {
       "type": "Потолок: Демонтажные работы",
       "name": "Очистка потолка от побелки, краски,водоэмульсионки",

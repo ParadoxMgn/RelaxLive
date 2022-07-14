@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
     "start": "webpack serve --mode=development --open",
-    "server": "json-server --watch ./db/db.json --port 3004"
+    "server": "json-server --watch ./dist/db/db.json --port 4545"
   },
   "keywords": [],
   "author": "",

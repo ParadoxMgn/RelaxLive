@@ -12,7 +12,5 @@
   "jquery": true,
   "esversion": 9,
   "node": true,
-  "globals": {
-    "userService": true
-  }
+  "globals": {}
 }

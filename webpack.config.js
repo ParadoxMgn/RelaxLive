@@ -14,7 +14,9 @@ module.exports = {
     hot: true,
     static: {
       directory: './dist',
-      watch: true
+      watch: {
+        ignored: './dist/db/db.json'
+      },
     }
   }
 };
