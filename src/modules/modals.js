@@ -18,6 +18,7 @@ export const modals = (bool = false, e = '') => {
       document.querySelector(popupClass).style.visibility = 'hidden';
       document.body.style.overflow = 'auto';
 
+
       if (popupClass === '.popup-transparency' || popupClass === '.popup-portfolio') {
         slideDocsPopup.destroy();
         if (slideDocsPopup1) {
@@ -30,7 +31,6 @@ export const modals = (bool = false, e = '') => {
 
     links.forEach(linkClass => {
       if (e.target.classList.contains(linkClass) || e.target.nodeName === linkClass || e.target.closest(`.${linkClass}`)) {
-
         document.querySelector(popupClass).style.visibility = 'visible';
         document.body.style.overflow = 'hidden';
         document.querySelector(popupContent).style.opacity = '0';
@@ -121,9 +121,12 @@ export const modals = (bool = false, e = '') => {
   const noOverflow = document.querySelectorAll('.link-list-repair a');
 
   document.addEventListener('click', e => {
-    e.preventDefault();
+    if (e.target.closest('.no-overflow') || e.target.closest('.link-list-repair a') || (e.target.closest(`.popup-repair-types .close`) || e.target === document.querySelector('.popup-repair-types'))) {
+      e.preventDefault();
 
-    popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['no-overflow', 'link-list-repair a']);
+      popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['no-overflow', 'link-list-repair a']);
+    }
+
     popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame']);
     popup(e, '.popup-privacy', '.popup-dialog-privacy', ['link-privacy']);
     popup(e, '.popup-transparency', '.popup-dialog-transparency', ['transparency-item__img']);

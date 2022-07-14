@@ -61,8 +61,9 @@ export const sendForm = () => {
         if (e.target == btn) {
           validateForm(inputs, form);
         }
-
+        console.log(e.target.closest('.checkbox__input'));
         if (e.target.closest('.checkbox__input')) {
+
           checkboxInput.checked = checkboxInput.checked ? true : false;
           checkboxLabel.style.border = '1px solid #322823';
           checkbox.style.borderBottom = 'none';
