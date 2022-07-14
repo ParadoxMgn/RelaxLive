@@ -16,8 +16,11 @@ export const modals = (bool = false, e = '') => {
 
       if (popupClass === '.popup-transparency' || popupClass === '.popup-portfolio') {
         slideDocsPopup.destroy();
+        slideDocsPopup = null;
+        console.log(slideDocsPopup);
         if (slideDocsPopup1) {
           slideDocsPopup1.destroy();
+          slideDocsPopup1 = null;
         }
       }
     }
@@ -66,6 +69,7 @@ export const modals = (bool = false, e = '') => {
                 slidesPerView: 1,
                 initialSlide: index,
               });
+              console.log(slideDocsPopup);
             }
           });
         }
@@ -112,7 +116,7 @@ export const modals = (bool = false, e = '') => {
   };
 
   if (bool) {
-    popup(e, '.popup-thank', '.popup-thank-bg', ['FORM']);
+    return popup(e, '.popup-thank', '.popup-thank-bg', ['FORM']);
   }
 
   document.addEventListener('click', e => {
@@ -122,10 +126,34 @@ export const modals = (bool = false, e = '') => {
       popup(e, '.popup-repair-types', '.popup-dialog-repair-types', ['no-overflow', 'link-list-repair a']);
     }
 
-    popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame']);
-    popup(e, '.popup-privacy', '.popup-dialog-privacy', ['link-privacy']);
-    popup(e, '.popup-transparency', '.popup-dialog-transparency', ['transparency-item__img']);
-    popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['button_wide']);
-    popup(e, '.popup-thank', '.popup-thank-bg', []);
+    if (e.target.closest('.portfolio-slider__slide-frame') || (e.target.closest(`.popup-portfolio .close`) || e.target === document.querySelector('.popup-portfolio'))) {
+      e.preventDefault();
+
+      popup(e, '.popup-portfolio', '.popup-dialog-portfolio', ['portfolio-slider__slide-frame']);
+    }
+
+    if (e.target.closest('.link-privacy') || (e.target.closest(`.popup-privacy .close`) || e.target === document.querySelector('.popup-privacy'))) {
+      e.preventDefault();
+
+      popup(e, '.popup-privacy', '.popup-dialog-privacy', ['link-privacy']);
+    }
+
+    if (e.target.closest('.transparency-item__img') || (e.target.closest(`.popup-transparency .close`) || e.target === document.querySelector('.popup-transparency'))) {
+      e.preventDefault();
+
+      popup(e, '.popup-transparency', '.popup-dialog-transparency', ['transparency-item__img']);
+    }
+
+    if (e.target.closest('.button_wide') || (e.target.closest(`.popup-consultation .close`) || e.target === document.querySelector('.popup-consultation'))) {
+      e.preventDefault();
+
+      popup(e, '.popup-consultation', '.popup-consultation .feedback-wrap', ['button_wide']);
+    }
+
+    if (e.target.closest(`.popup-thank .close`) || e.target === document.querySelector('.popup-thank')) {
+      e.preventDefault();
+
+      popup(e, '.popup-thank', '.popup-thank-bg', []);
+    }
   });
 };
