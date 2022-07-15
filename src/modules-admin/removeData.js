@@ -6,17 +6,17 @@ export const removeData = () => {
   const selectInput = document.getElementById(`typeItem`);
 
 
-  tableBody.addEventListener('click', e => {
+  tableBody.addEventListener('click', async e => {
     if (e.target.closest('.action-remove')) {
       e.preventDefault();
 
       const tr = e.target.closest('tr');
 
-      dbService.dataSend("DELETE", [], `/${tr.dataset.key}`).then(() => {
+      await dbService.dataSend("DELETE", [], `/${tr.dataset.key}`).then(() => {
         renderFilter();
       });
 
-      dbService.dataGet()
+      await dbService.dataGet()
         .then(data => {
           select(data, selectInput.value);
         });

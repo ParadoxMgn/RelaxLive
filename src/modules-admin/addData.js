@@ -10,7 +10,7 @@ export const addData = () => {
   const inputUnits = document.getElementById('units');
   const searchCost = document.getElementById('cost');
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const data = {
@@ -21,11 +21,11 @@ export const addData = () => {
     };
 
     if (!form.dataset.edit) {
-      dbService.dataSend("POST", data).then(() => {
+      await dbService.dataSend("POST", data).then(() => {
         renderFilter();
       });
 
-      dbService.dataGet()
+      await dbService.dataGet()
         .then(data => {
           select(data, selectInput.value);
         });
