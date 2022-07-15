@@ -167,7 +167,7 @@ export const sliderBenefits = () => {
           320: {
             slidesPerView: 1
           },
-          768: {
+          750: {
             slidesPerView: 3
           }
         },

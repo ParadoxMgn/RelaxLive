@@ -19,7 +19,6 @@ export const sendForm = () => {
     const inputs = form.querySelectorAll('input');
     const btn = form.querySelector('button');
     const checkboxInput = form.querySelector('.checkbox__input');
-    const checkbox = form.querySelector('.checkbox');
     const checkboxLabel = form.querySelector('.checkbox__label');
     const formSpan = form.querySelector('.checkbox span');
 
@@ -41,7 +40,7 @@ export const sendForm = () => {
             .then(() => {
               form.reset();
               document.querySelector('.popup-consultation').style.visibility = 'hidden';
-              document.body.style.overflow = 'auto';
+              document.body.style.overflowY = 'auto';
               modals(true, e);
             })
             .catch(err => {

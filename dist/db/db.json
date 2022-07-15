@@ -677,6 +677,20 @@
       "units": "шт",
       "cost": "400",
       "id": "0365277003"
+    },
+    {
+      "type": "ААА",
+      "name": "user",
+      "units": "см",
+      "cost": "500",
+      "id": "kkYvv8e"
+    },
+    {
+      "type": "ААА",
+      "name": "qwe",
+      "units": "м2",
+      "cost": "450",
+      "id": "OLs0GPb"
     }
   ]
 }

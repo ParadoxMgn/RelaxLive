@@ -1,5 +1,6 @@
 import { renderFilter } from "./filterData";
 import { select } from "./select";
+import { render } from "../modules/render";
 
 export const addData = () => {
   const selectInput = document.getElementById(`typeItem`);

@@ -1,9 +1,33 @@
 export const render = (data) => {
-  const navListPopupRepair = document.querySelector('.nav-list-popup-repair');
+  let navListPopupRepair = document.querySelector('.nav-list-popup-repair');
   const popupRepairTypesContentTableList = document.querySelector('.popup-repair-types-content-table__list');
   const tBody = popupRepairTypesContentTableList.querySelector('tbody');
   const title = document.querySelector('.popup-repair-types-content__head-title');
-  const popupRepairTypesNavItem = document.querySelectorAll('.popup-repair-types-nav__item');
+  let popupRepairTypesNavItem = document.querySelectorAll('.popup-repair-types-nav__item');
+
+  // <button class="button_o popup-repair-types-nav__item swiper-slide active">Потолок: Демонтажные работы</button>
+
+  const renderButtons = (data) => {
+    let buttonsArr = [];
+
+    data.forEach(item => {
+      if (item.type) {
+        buttonsArr.push(item.type);
+      }
+    });
+
+    buttonsArr = buttonsArr.filter((item, index) => {
+      return buttonsArr.indexOf(item.trim()) === index;
+    });
+
+    navListPopupRepair.innerHTML = ``;
+
+    buttonsArr.forEach((item, index) => {
+      navListPopupRepair.insertAdjacentHTML('beforeend',
+        `<button class="button_o popup-repair-types-nav__item swiper-slide ${index ? '' : 'active'}">${item}</button>`
+      );
+    });
+  };
 
   const renderTable = (data, text = 'Потолок: Демонтажные работы') => {
     tBody.innerHTML = '';
@@ -24,6 +48,9 @@ export const render = (data) => {
   };
 
   renderTable(data);
+  renderButtons(data);
+
+  popupRepairTypesNavItem = document.querySelectorAll('.popup-repair-types-nav__item');
 
   navListPopupRepair.addEventListener('click', e => {
     e.preventDefault();
