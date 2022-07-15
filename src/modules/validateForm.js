@@ -32,10 +32,6 @@ export const validateForm = (inputs, form) => {
       item.setCustomValidity('Поле не должно быть пустым!');
     }
 
-    console.log(item.type);
-    console.log(item.value.trim());
-    console.log(checkPhone(item));
-
     if (item.type === "tel" && item.value.trim() !== '' && checkPhone(item)) {
 
       item.setCustomValidity('Номер телефона должен быть не меньше 11 цифр!');
