@@ -1,4 +1,4 @@
-export const select = (data) => {
+export const select = (data, value = 'Все услуги') => {
   const select = document.getElementById(`typeItem`);
   let selectArr = [];
 
@@ -19,4 +19,6 @@ export const select = (data) => {
       `<option value="${item}">${item}</option>`
     );
   });
+
+  select.value = value;
 };

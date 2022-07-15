@@ -17,7 +17,7 @@ export const modals = (bool = false, e = '') => {
       if (popupClass === '.popup-transparency' || popupClass === '.popup-portfolio') {
         slideDocsPopup.destroy();
         slideDocsPopup = null;
-        console.log(slideDocsPopup);
+
         if (slideDocsPopup1) {
           slideDocsPopup1.destroy();
           slideDocsPopup1 = null;
@@ -69,7 +69,6 @@ export const modals = (bool = false, e = '') => {
                 slidesPerView: 1,
                 initialSlide: index,
               });
-              console.log(slideDocsPopup);
             }
           });
         }

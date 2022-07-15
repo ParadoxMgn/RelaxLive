@@ -2,6 +2,7 @@ import { renderFilter } from "./filterData";
 import { select } from "./select";
 
 export const editData = () => {
+  const selectInput = document.getElementById(`typeItem`);
   const modal = document.getElementById('modal');
   const tableBody = document.getElementById('tbody');
   const form = document.querySelector('.modal form');
@@ -24,7 +25,7 @@ export const editData = () => {
     }
   });
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     if (form.dataset.edit) {
@@ -35,13 +36,13 @@ export const editData = () => {
         "cost": `${+searchCost.value}`
       };
 
-      dbService.dataSend("PATCH", data, `/${form.dataset.edit}`).then(() => {
+      await dbService.dataSend("PATCH", data, `/${form.dataset.edit}`).then(() => {
         renderFilter();
       });
 
-      dbService.dataGet()
+      await dbService.dataGet()
         .then(data => {
-          select(data);
+          select(data, selectInput.value);
         });
 
       form.reset();

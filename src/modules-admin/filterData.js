@@ -3,32 +3,54 @@ import { render } from "./render";
 export const filterData = () => {
   const searchInput = document.getElementById('input-search');
   const select = document.getElementById(`typeItem`);
-  const th = document.querySelectorAll('.table-th');
 
   select.addEventListener('input', e => {
-    renderFilter();
-
-    th.forEach(item => {
-      const svgUi = item.querySelector('.svg_ui');
-      item.removeAttribute('data-sort');
-      item.removeAttribute('data-sorting');
-      if (svgUi) {
-        svgUi.style.transform = `rotate(0)`;
-      }
-    });
-
     searchInput.value = '';
+    renderFilter();
   });
 };
 
 export const renderFilter = () => {
   const select = document.getElementById(`typeItem`);
+  const searchInput = document.getElementById('input-search');
+  const th = document.querySelectorAll('.table-th');
+  let sort = '';
+  let nameSort = '';
 
-  if (select.value === 'Все услуги') {
+  th.forEach(item => {
+    if (item.hasAttribute('data-sorting') && item.hasAttribute('data-sort')) {
+      sort = 'asc';
+      nameSort = item.dataset.sorting;
+    }
+
+    if (item.hasAttribute('data-sorting') && !item.hasAttribute('data-sort')) {
+      sort = 'desc';
+      nameSort = item.dataset.sorting;
+    }
+  });
+
+  if (select.value === 'Все услуги' && searchInput.value === '' && sort === '') {
     dbService.dataGet()
       .then(data => render(data));
-  } else {
+  }
+  if (select.value !== 'Все услуги' && searchInput.value === '' && sort === '') {
     dbService.dataGet(`?type=${select.value}`)
+      .then(data => render(data));
+  }
+  if (searchInput.value !== '' && sort === '') {
+    dbService.dataGet(`?q=${searchInput.value}`)
+      .then(data => render(data));
+  }
+  if (select.value === 'Все услуги' && searchInput.value === '' && sort !== '') {
+    dbService.dataGet(`?_sort=${nameSort}&_order=${sort}`)
+      .then(data => render(data));
+  }
+  if (select.value !== 'Все услуги' && searchInput.value === '' && sort !== '') {
+    dbService.dataGet(`?_sort=${nameSort}&_order=${sort}&type=${select.value}`)
+      .then(data => render(data));
+  }
+  if (searchInput.value !== '' && sort !== '') {
+    dbService.dataGet(`?_sort=${nameSort}&_order=${sort}&q=${searchInput.value}`)
       .then(data => render(data));
   }
 };

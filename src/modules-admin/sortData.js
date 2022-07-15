@@ -1,9 +1,8 @@
-import { render } from "./render";
+import { renderFilter } from "./filterData";
 
 export const sortData = () => {
   const tHead = document.querySelector('.table thead');
-  const select = document.getElementById(`typeItem`);
-  const searchInput = document.getElementById('input-search');
+  const th = document.querySelectorAll('.table-th');
 
   tHead.addEventListener('click', e => {
     const tableTh = e.target.closest('.table-th');
@@ -34,18 +33,17 @@ export const sortData = () => {
       svgUi.style.transform = `rotate(0)`;
     }
 
-    if (searchInput.value !== '') {
-      console.log(1);
-      dbService.dataGet(`?_sort=${tableTh.dataset.sorting}&_order=${tableTh.hasAttribute('data-sort') ? 'asc' : 'desc'}&q=${searchInput.value}`)
-        .then(data => render(data));
-    } else {
-      if (select.value !== 'Все услуги') {
-        dbService.dataGet(`?_sort=${tableTh.dataset.sorting}&_order=${tableTh.hasAttribute('data-sort') ? 'asc' : 'desc'}&type=${select.value}`)
-          .then(data => render(data));
-      } else {
-        dbService.dataGet(`?_sort=${tableTh.dataset.sorting}&_order=${tableTh.hasAttribute('data-sort') ? 'asc' : 'desc'}`)
-          .then(data => render(data));
+    th.forEach(item => {
+      if (e.target.closest('.table-th') !== item) {
+        const svgUi = item.querySelector('.svg_ui');
+        item.removeAttribute('data-sort');
+        item.removeAttribute('data-sorting');
+        if (svgUi) {
+          svgUi.style.transform = `rotate(0)`;
+        }
       }
-    }
+    });
+
+    renderFilter();
   });
 };

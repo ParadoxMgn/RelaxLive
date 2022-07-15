@@ -3,6 +3,7 @@ import { select } from "./select";
 
 export const removeData = () => {
   const tableBody = document.getElementById('tbody');
+  const selectInput = document.getElementById(`typeItem`);
 
 
   tableBody.addEventListener('click', e => {
@@ -17,7 +18,7 @@ export const removeData = () => {
 
       dbService.dataGet()
         .then(data => {
-          select(data);
+          select(data, selectInput.value);
         });
     }
   });

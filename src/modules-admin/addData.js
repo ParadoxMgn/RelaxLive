@@ -2,6 +2,7 @@ import { renderFilter } from "./filterData";
 import { select } from "./select";
 
 export const addData = () => {
+  const selectInput = document.getElementById(`typeItem`);
   const modal = document.getElementById('modal');
   const form = document.querySelector('.modal form');
   const inputType = document.getElementById('type');
@@ -26,7 +27,7 @@ export const addData = () => {
 
       dbService.dataGet()
         .then(data => {
-          select(data);
+          select(data, selectInput.value);
         });
 
       form.reset();
