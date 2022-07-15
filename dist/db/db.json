@@ -684,6 +684,13 @@
       "units": "шт",
       "cost": "400",
       "id": "0365277003"
+    },
+    {
+      "type": "qwe",
+      "name": "html css php",
+      "units": "qwe",
+      "cost": "123",
+      "id": "z48OWqo"
     }
   ]
 }

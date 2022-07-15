@@ -1,4 +1,5 @@
 import { renderFilter } from "./filterData";
+import { select } from "./select";
 
 export const addData = () => {
   const modal = document.getElementById('modal');
@@ -22,6 +23,11 @@ export const addData = () => {
       dbService.dataSend("POST", data).then(() => {
         renderFilter();
       });
+
+      dbService.dataGet()
+        .then(data => {
+          select(data);
+        });
 
       form.reset();
       modal.style.display = 'none';

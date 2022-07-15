@@ -1,4 +1,5 @@
 import { renderFilter } from "./filterData";
+import { select } from "./select";
 
 export const editData = () => {
   const modal = document.getElementById('modal');
@@ -37,6 +38,11 @@ export const editData = () => {
       dbService.dataSend("PATCH", data, `/${form.dataset.edit}`).then(() => {
         renderFilter();
       });
+
+      dbService.dataGet()
+        .then(data => {
+          select(data);
+        });
 
       form.reset();
       modal.style.display = 'none';

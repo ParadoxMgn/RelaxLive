@@ -15,9 +15,6 @@ export const redirect = () => {
     }
   }
 
-  console.log(index);
-  console.log(table);
-
   if (window.location.href !== index && window.location.href !== table) {
     window.location.replace(index);
   }

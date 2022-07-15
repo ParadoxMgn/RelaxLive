@@ -1,4 +1,5 @@
 import { renderFilter } from "./filterData";
+import { select } from "./select";
 
 export const removeData = () => {
   const tableBody = document.getElementById('tbody');
@@ -13,6 +14,11 @@ export const removeData = () => {
       dbService.dataSend("DELETE", [], `/${tr.dataset.key}`).then(() => {
         renderFilter();
       });
+
+      dbService.dataGet()
+        .then(data => {
+          select(data);
+        });
     }
   });
 };
