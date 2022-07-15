@@ -1,6 +1,6 @@
 export const redirect = () => {
   const indexPath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
-  const index = indexPath + '/';
+  const index = indexPath + '/index.html';
   const table = indexPath + '/table.html';
 
   if (window.location.href === index) {

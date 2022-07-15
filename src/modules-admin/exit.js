@@ -1,6 +1,6 @@
 export const exit = () => {
   const indexPath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
-  const index = indexPath + '/';
+  const index = indexPath + '/index.html';
 
   const btnExit = document.querySelector('.btn-exit');
 
