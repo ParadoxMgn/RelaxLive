@@ -2,11 +2,18 @@ import { animate } from './helpers';
 import Swiper, { Navigation, Pagination, Controller } from 'swiper';
 
 export const modals = (bool = false, e = '') => {
+  const body = document.body;
   let slideDocsPopup = null;
   let slideDocsPopup1 = null;
+  let scrollWidth = window.outerWidth - body.clientWidth;
+
+  window.addEventListener('resize', () => {
+    scrollWidth = window.outerWidth - body.clientWidth;
+  });
 
   const popup = (e, popupClass, popupContent, links) => {
     if ((e.target.closest(`${popupClass} .close`) || e.target === document.querySelector(popupClass))) {
+      body.style.paddingRight = `0px`;
       document.querySelector(popupClass).style.visibility = 'hidden';
       document.body.style.overflowY = 'auto';
 
@@ -27,6 +34,7 @@ export const modals = (bool = false, e = '') => {
 
     links.forEach(linkClass => {
       if (e.target.classList.contains(linkClass) || e.target.nodeName === linkClass || e.target.closest(`.${linkClass}`)) {
+        body.style.paddingRight = `${scrollWidth}px`;
         document.querySelector(popupClass).style.visibility = 'visible';
         document.body.style.overflowY = 'hidden';
         document.querySelector(popupContent).style.opacity = '0';
