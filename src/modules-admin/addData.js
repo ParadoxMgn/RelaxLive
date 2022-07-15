@@ -1,6 +1,4 @@
-import { render } from "./render";
-import { error } from "./error";
-import { select } from "./select";
+import { renderFilter } from "./filterData";
 
 export const addData = () => {
   const modal = document.getElementById('modal');
@@ -20,14 +18,14 @@ export const addData = () => {
       "cost": `${+searchCost.value}`
     };
 
-    dbService.addData(data).then(() => {
-      dbService.dataGet()
-        .then(data => render(data))
-        .catch(() => error());
-    });
+    if (!form.dataset.edit) {
+      dbService.dataSend("POST", data).then(() => {
+        renderFilter();
+      });
 
-    form.reset();
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+      form.reset();
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
   });
 };

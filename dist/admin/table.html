@@ -13,13 +13,27 @@
 
 
   <main class="main">
+    <div class="exit-block">
+      <button class="button btn-exit">Выход</button>
+    </div>
+
     <div id="container" class="container">
       <h1 class="title-page">Список услуг</h1>
+      <label class="label-flex">
+        <div class="select-block"><select name="typeItem" id="typeItem">
+            <option value="Все услуги">Все услуги</option>
+          </select>
+          выбрать тип
+        </div>
+        <div class="reset-block">
+          <button class="button btn-reset">Сброс</button>
+        </div>
+      </label>
+
       <label>
-        <select name="typeItem" id="typeItem">
-          <option value="Все услуги">Все услуги</option>
-        </select>
-        выбрать тип
+        <input type="text" name="input-search" id="input-search">
+        </input>
+        Введите название услуги или работы.
       </label>
       <div class="table__wrapper">
         <table id="table" class="table">

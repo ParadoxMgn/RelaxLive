@@ -7,7 +7,7 @@ export const auth = async (dataUser) => {
 
   const indexPath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
   const table = indexPath + '/table.html';
-  const { name, password } = dataUser[0];
+  const { name, password } = dataUser;
 
   form.addEventListener('submit', e => {
     e.preventDefault();

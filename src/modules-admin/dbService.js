@@ -7,7 +7,6 @@ export class DbService {
 
       if (response.ok) {
         return await response.json();
-        // return await data.db;
       } else {
         throw error();
       }
@@ -34,33 +33,5 @@ export class DbService {
     } catch (error) {
       error();
     }
-  }
-
-  addData(data) {
-    return this.dataSend("POST", data);
-  }
-
-  removeData(option) {
-    return this.dataSend("DELETE", [], `/${option}`);
-  }
-
-  changePermission(option, permission) {
-    return this.dataSend("PATCH", permission, `/${option}`);
-  }
-
-  editData(option, users) {
-    return this.dataSend("PUT", users, `/${option}`);
-  }
-
-  filterData(option) {
-    return this.dataGet(option);
-  }
-
-  sortData(option) {
-    return this.dataGet(option);
-  }
-
-  searchData(option) {
-    return this.dataGet(option);
   }
 }

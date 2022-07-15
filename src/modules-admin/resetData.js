@@ -1,12 +1,13 @@
 import { render } from "./render";
 
-export const filterData = () => {
+export const resetData = () => {
+  const btnReset = document.querySelector('.btn-reset');
   const searchInput = document.getElementById('input-search');
   const select = document.getElementById(`typeItem`);
   const th = document.querySelectorAll('.table-th');
 
-  select.addEventListener('input', e => {
-    renderFilter();
+  btnReset.addEventListener('click', e => {
+    e.preventDefault();
 
     th.forEach(item => {
       const svgUi = item.querySelector('.svg_ui');
@@ -17,18 +18,9 @@ export const filterData = () => {
       }
     });
 
-    searchInput.value = '';
-  });
-};
-
-export const renderFilter = () => {
-  const select = document.getElementById(`typeItem`);
-
-  if (select.value === 'Все услуги') {
     dbService.dataGet()
       .then(data => render(data));
-  } else {
-    dbService.dataGet(`?type=${select.value}`)
-      .then(data => render(data));
-  }
+    select.value = 'Все услуги';
+    searchInput.value = '';
+  });
 };

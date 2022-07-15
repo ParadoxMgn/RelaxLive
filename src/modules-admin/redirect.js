@@ -3,9 +3,6 @@ export const redirect = () => {
   const index = indexPath + '/';
   const table = indexPath + '/table.html';
 
-  let authEMail = JSON.parse(localStorage.getItem('auth')) || [];
-
-
   if (window.location.href === index) {
     if (document.cookie === 'user=auth') {
       window.location.replace(table);
@@ -17,6 +14,9 @@ export const redirect = () => {
       window.location.replace(index);
     }
   }
+
+  console.log(index);
+  console.log(table);
 
   if (window.location.href !== index && window.location.href !== table) {
     window.location.replace(index);

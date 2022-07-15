@@ -1,27 +1,14 @@
-import localUser from './localUser';
-import users from './users';
-
-const exit = () => {
+export const exit = () => {
   const indexPath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
-  const index = indexPath + '/index.html';
+  const index = indexPath + '/';
 
-  const btnExit = document.getElementById('btn-exit');
+  const btnExit = document.querySelector('.btn-exit');
 
   btnExit.addEventListener('click', e => {
     e.preventDefault();
-    const userList = localUser(users()) || [];
 
-    userList.forEach(item => {
-      if (item.auth) {
-        item.auth = '';
-        localStorage.setItem('users', JSON.stringify(userList));
-        localStorage.setItem('auth', JSON.stringify(''));
-
-        window.location.href = index;
-      }
-    });
+    document.cookie = "user=auth; path=/admin; max-age=0";
+    window.location.href = index;
   });
 
 };
-
-export default exit;

@@ -5,7 +5,7 @@ export const render = (data) => {
 
   data.forEach(itemData => {
     tableBody.insertAdjacentHTML('beforeend',
-      `<tr class="table__row">
+      `<tr class="table__row" data-key="${itemData.id}">
         <td class="table__id table__cell">${itemData.id}</td>
         <td class="table-type table__cell">${itemData.type}</td>
         <td class="table-name table__cell">

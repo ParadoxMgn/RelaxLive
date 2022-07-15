@@ -47,6 +47,15 @@ body {
   background-color: #F5F5F5;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container input:focus {
+  outline: none;
+}
+
 
 /* UI компоненты и стили*/
 
@@ -403,12 +412,12 @@ body {
   text-decoration: underline;
 }
 
-
 /*   Таблица клиентов   */
 .table__wrapper {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  max-height: 600px;
 }
 
 .table {
@@ -496,6 +505,7 @@ body {
   width: 8px;
   height: 8px;
   margin-left: 3px;
+  margin-right: 3px;
   fill: var(--firm_color);
 }
 
@@ -585,4 +595,46 @@ body {
   width: 17px;
   height: 17px;
   fill: var(--txt_grey);
+}
+
+.label-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-reset {
+  background-color: var(--firm_color);
+  height: 44px;
+  padding: 0 35px;
+  border: 1px solid var(--firm_color);
+  color: white;
+  font-weight: 600;
+  transition: background-color var(--transition_time);
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  background-color: var(--hover_color);
+}
+
+.exit-block {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
+
+.btn-exit {
+  background-color: var(--firm_color);
+  height: 44px;
+  padding: 0 35px;
+  border: 1px solid var(--firm_color);
+  color: white;
+  font-weight: 600;
+  transition: background-color var(--transition_time);
+  cursor: pointer;
+}
+
+.btn-exit:hover {
+  background-color: var(--hover_color);
 }
