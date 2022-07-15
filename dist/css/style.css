@@ -17,7 +17,7 @@ body {
   margin: 0;
   width: 100%;
   max-width: 100%;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 main {
@@ -903,6 +903,12 @@ template,
   justify-content: space-around;
 }
 
+input {
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+
 .feedback__input {
   position: relative;
   border: none;
@@ -939,6 +945,20 @@ template,
 
 .feedback__input-input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
+}
+
+.error-input {
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(255, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(255, 0, 0, 0.5);
+  box-shadow: 0px 0px 5px 5px rgba(255, 0, 0, 0.5);
+}
+
+div.error-input {
+  border-radius: 3px;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
 }
 
 @media (min-width: 1025px) {
@@ -2075,6 +2095,17 @@ template,
   border-radius: 50px;
 }
 
+.feedback-block__form.error label:first-child:after {
+  position: absolute;
+  bottom: 0;
+  left: -30px;
+  width: 553px;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, rgba(150, 0, 0, 1) 0%, rgba(222, 51, 13, 1) 100%);
+  border-radius: 50px;
+}
+
 @media (max-width: 575px) {
   .feedback-block__form label:first-child:after {
     display: none;
@@ -2137,7 +2168,7 @@ template,
 
 .feedback-block__form-input_phone {
   position: relative;
-  width: 290px;
+  width: 260px;
   color: #ffffff;
 }
 
@@ -7977,7 +8008,6 @@ div.wave-block:nth-child(17):after {
 .checkbox__descr_round-feedback {
   padding-left: 14px;
   width: 190px;
-  height: 48px;
   font-size: 13px;
   margin-top: -5px;
 }

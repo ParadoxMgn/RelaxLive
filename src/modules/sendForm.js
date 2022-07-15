@@ -4,6 +4,7 @@ import { modals } from './modals';
 export const sendForm = () => {
   const form = document.querySelectorAll('form');
 
+
   const sendData = (data) => {
     return fetch('https://jsonplaceholder.typicode.com/todos/', {
       method: 'POST',
@@ -20,6 +21,7 @@ export const sendForm = () => {
     const checkboxInput = form.querySelector('.checkbox__input');
     const checkbox = form.querySelector('.checkbox');
     const checkboxLabel = form.querySelector('.checkbox__label');
+    const formSpan = form.querySelector('.checkbox span');
 
 
     checkboxInput.removeAttribute('required');
@@ -46,8 +48,8 @@ export const sendForm = () => {
               alert(err);
             });
         } else {
-          checkbox.style.borderBottom = '2px solid red';
           checkboxLabel.style.border = '2px solid red';
+          formSpan.style.color = 'red';
         }
       }
     };
@@ -66,7 +68,7 @@ export const sendForm = () => {
 
           checkboxInput.checked = checkboxInput.checked ? true : false;
           checkboxLabel.style.border = '1px solid #322823';
-          checkbox.style.borderBottom = 'none';
+          formSpan.style.color = '#322823';
         }
 
       });

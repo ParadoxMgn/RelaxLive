@@ -1,5 +1,6 @@
-export const validateForm = (inputs) => {
+export const validateForm = (inputs, form) => {
   let success = true;
+  const formSpan = form.querySelectorAll('span');
 
   const checkPhone = (elem) => {
     let count = 0;
@@ -25,17 +26,29 @@ export const validateForm = (inputs) => {
     }
   };
 
-  inputs.forEach(item => {
+  inputs.forEach((item, index) => {
     if (item.value.trim() === '') {
+
       item.setCustomValidity('Поле не должно быть пустым!');
     }
 
+    console.log(item.type);
+    console.log(item.value.trim());
+    console.log(checkPhone(item));
+
     if (item.type === "tel" && item.value.trim() !== '' && checkPhone(item)) {
+
       item.setCustomValidity('Номер телефона должен быть не меньше 11 цифр!');
     }
 
     item.addEventListener('invalid', () => {
-      item.style.borderBottom = '3px solid red';
+      if (form.classList.contains('feedback__form')) {
+        item.classList.add('error-input');
+      }
+
+      if (form.classList.contains('feedback-block__form')) {
+        formSpan[index].style.color = 'red';
+      }
     });
 
     if (item.type !== "checkbox" && !item.checkValidity()) {
@@ -46,7 +59,10 @@ export const validateForm = (inputs) => {
       inputs.forEach(item => {
         if (e.target === item && e.target.type !== "checkbox") {
           item.setCustomValidity('');
-          item.style.borderBottom = `3px solid rgba(50, 40, 35, 0.7)`;
+          item.classList.remove('error-input');
+          if (form.classList.contains('feedback-block__form')) {
+            formSpan[index].style.color = 'white';
+          }
         }
       });
     });
