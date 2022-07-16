@@ -38,6 +38,11 @@ export const validateForm = (inputs, form) => {
       item.setCustomValidity('Номер телефона должен быть не меньше 11 цифр!');
     }
 
+    if (item.type === "text" && item.value.trim() !== '' && item.value.trim().length < 2) {
+
+      item.setCustomValidity('Имя должено быть не меньше 2 символов!');
+    }
+
     item.addEventListener('invalid', () => {
       if (form.classList.contains('feedback__form')) {
         item.classList.add('error-input');
