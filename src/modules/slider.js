@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
 
 export const sliderPortfolioMobile = () => {
   let catalogSlider = null;
@@ -254,10 +254,17 @@ export const sliderServices = () => {
     if (!catalogSlider) {
       catalogSlider = new Swiper('.services', {
         speed: 500,
-        spaceBetween: 500,
+        spaceBetween: 200,
         loop: true,
-        modules: [Navigation, Pagination],
-        slidesPerView: 1
+        modules: [Navigation, Pagination, Autoplay, EffectFade],
+        slidesPerView: 1,
+        // effect: 'fade',
+        // fadeEffect: {
+        //   crossFade: true
+        // },
+        autoplay: {
+          delay: 2000,
+        },
       });
     }
   };
