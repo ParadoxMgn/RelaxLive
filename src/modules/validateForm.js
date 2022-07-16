@@ -27,6 +27,7 @@ export const validateForm = (inputs, form) => {
   };
 
   inputs.forEach((item, index) => {
+    console.log(item);
     if (item.value.trim() === '') {
 
       item.setCustomValidity('Поле не должно быть пустым!');

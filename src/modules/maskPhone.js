@@ -1,5 +1,6 @@
 export const maskPhone = () => {
   const elems = document.querySelectorAll('input[name=phone]');
+  const inputs = document.querySelectorAll('input[type=text]');
 
   const mask = function (e) {
     const keyCode = e.keyCode;
@@ -38,4 +39,15 @@ export const maskPhone = () => {
     elem.addEventListener("blur", mask);
   }
 
+  inputs.forEach(elem => {
+    elem.addEventListener('blur', e => {
+      e.target.value = e.target.value.replace(/[^а-я\s]+/gi, '');
+      e.target.value = e.target.value.replace(/\s+/g, ' ');
+      e.target.value = e.target.value.replace(/[\s\-\(\)\+]+$/g, '');
+      e.target.value = e.target.value.replace(/^([а-я])([a-я\s]+)/gi, (str, $1, $2) => {
+        return `${$1.toUpperCase()}${$2.toLowerCase()}`;
+      });
+    });
+  });
 };
+
