@@ -299,18 +299,24 @@ export const sliderRepairTypes = () => {
     if (!catalogSlider) {
       catalogSlider = new Swiper('.nav-popup-repair-types', {
         speed: 400,
-        spaceBetween: 20,
+
         modules: [Navigation, Pagination],
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next6',
+          prevEl: '.swiper-button-prev6',
         },
         slidesPerView: 1,
-        slideToClickedSlide: true,
-        centeredSlides: true,
         breakpoints: {
+          320: {
+            slidesPerView: 1
+          },
           576: {
-            slidesPerView: 2
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+          630: {
+            slidesPerView: 2,
+            spaceBetween: 70
           }
         }
       });

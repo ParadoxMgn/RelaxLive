@@ -7,10 +7,10 @@
   display: none;
 }
 
-.swiper-slide-active {
+/* .swiper-slide-active {
   font-size: 20px;
   opacity: 1;
-}
+} */
 
 .swiper-slide-active .formula-item__icon {
   width: 80px;
